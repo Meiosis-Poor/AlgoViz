@@ -1,0 +1,25 @@
+# ninja log v6
+788	2617	7796518370632360	CMakeFiles/simulator.dir/main.cpp.obj	ce2212b0dcd1e6f7
+65	132	7796519822607876	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	a4089933e43e58e2
+68	780	7796518369738687	simulator_autogen/timestamp	9a0d964806770ecb
+68	780	7796518369738687	simulator_autogen/mocs_compilation.cpp	9a0d964806770ecb
+68	780	7796518369738687	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/timestamp	9a0d964806770ecb
+792	2609	7796518370671907	CMakeFiles/simulator.dir/mainwindow.cpp.obj	1577fbc343920c10
+68	780	7796518369738687	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/mocs_compilation.cpp	9a0d964806770ecb
+785	2523	7796518370602460	CMakeFiles/simulator.dir/simulator_autogen/mocs_compilation.cpp.obj	306410af1613a57d
+2617	2819	7796518388919237	simulator.exe	e632956d490fce3
+132	1036	7796519830430756	build.ninja	c80f59cd8260e929
+21	96	7796519832120300	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	a4089933e43e58e2
+104	300	7796519832949717	simulator_autogen/timestamp	9a0d964806770ecb
+104	300	7796519832949717	simulator_autogen/mocs_compilation.cpp	9a0d964806770ecb
+104	300	7796519832949717	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/timestamp	9a0d964806770ecb
+104	300	7796519832949717	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/mocs_compilation.cpp	9a0d964806770ecb
+301	2119	7796519834917446	CMakeFiles/simulator.dir/mainwindow.cpp.obj	1577fbc343920c10
+2119	2332	7796519853100149	simulator.exe	e632956d490fce3
+45	106	7796520097709608	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	a4089933e43e58e2
+113	352	7796520098392398	simulator_autogen/timestamp	9a0d964806770ecb
+113	352	7796520098392398	simulator_autogen/mocs_compilation.cpp	9a0d964806770ecb
+113	352	7796520098392398	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/timestamp	9a0d964806770ecb
+113	352	7796520098392398	D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/mocs_compilation.cpp	9a0d964806770ecb
+353	2058	7796520100786577	CMakeFiles/simulator.dir/mainwindow.cpp.obj	1577fbc343920c10
+2058	2229	7796520117841719	simulator.exe	e632956d490fce3
