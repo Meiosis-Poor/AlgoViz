@@ -3,189 +3,190 @@
 cmake_policy(SET CMP0009 NEW)
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.c")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.c")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.c++")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.c++")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.cc")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.cc")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.ch")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.ch")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.cpp")
 set(OLD_GLOB
-  "D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp"
-  "D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/EWIEGA46WW/moc_mainwindow.cpp"
-  "D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/mocs_compilation.cpp"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CompilerIdCXX/CMakeCXXCompilerId.cpp"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_graphwidget.cpp"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_mainwindow.cpp"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_sortwidget.cpp"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_sortworker.cpp"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/mocs_compilation.cpp"
-  "D:/Poorcomputer/Study/simulator/fileloader.cpp"
-  "D:/Poorcomputer/Study/simulator/graphwidget.cpp"
-  "D:/Poorcomputer/Study/simulator/main.cpp"
-  "D:/Poorcomputer/Study/simulator/mainwindow.cpp"
-  "D:/Poorcomputer/Study/simulator/sortwidget.cpp"
-  "D:/Poorcomputer/Study/simulator/sortworker.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/EWIEGA46WW/moc_mainwindow.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/mocs_compilation.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_graphwidget.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_mainwindow.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_sortwidget.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_sortworker.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/mocs_compilation.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/fileloader.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/main.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/sortwidget.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/sortworker.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.cxx")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.cxx")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.h")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.h")
 set(OLD_GLOB
-  "D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/include/ui_mainwindow.h"
-  "D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/moc_predefs.h"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/include/ui_mainwindow.h"
-  "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h"
-  "D:/Poorcomputer/Study/simulator/fileloader.h"
-  "D:/Poorcomputer/Study/simulator/graphwidget.h"
-  "D:/Poorcomputer/Study/simulator/mainwindow.h"
-  "D:/Poorcomputer/Study/simulator/sortwidget.h"
-  "D:/Poorcomputer/Study/simulator/sortworker.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/include/ui_mainwindow.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/moc_predefs.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/include/ui_mainwindow.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/fileloader.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/sortaction.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/sortwidget.h"
+  "D:/Poorcomputer/Study/Github/AlgoViz/sortworker.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.h++")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.h++")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.hh")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.hh")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.hpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.hpp")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.hxx")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.hxx")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.java")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.java")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.js")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.js")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.jui")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.jui")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.qml")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.qml")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.qrc")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.qrc")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.qs")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.qs")
 set(OLD_GLOB
-  "D:/Poorcomputer/Study/simulator/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/maintenance_tool_provider.qs"
+  "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/maintenance_tool_provider.qs"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()
 
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/simulator/*.ui")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.ui")
 set(OLD_GLOB
-  "D:/Poorcomputer/Study/simulator/mainwindow.ui"
+  "D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.ui"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/cmake.verify_globs")
 endif()

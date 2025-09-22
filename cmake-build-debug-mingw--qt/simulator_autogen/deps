@@ -586,21 +586,22 @@ simulator_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-	D:/Poorcomputer/Study/simulator/CMakeLists.txt \
-	D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake \
-	D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeRCCompiler.cmake \
-	D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeSystem.cmake \
-	D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h \
-	D:/Poorcomputer/Study/simulator/fileloader.cpp \
-	D:/Poorcomputer/Study/simulator/fileloader.h \
-	D:/Poorcomputer/Study/simulator/graphwidget.cpp \
-	D:/Poorcomputer/Study/simulator/graphwidget.h \
-	D:/Poorcomputer/Study/simulator/main.cpp \
-	D:/Poorcomputer/Study/simulator/mainwindow.cpp \
-	D:/Poorcomputer/Study/simulator/mainwindow.h \
-	D:/Poorcomputer/Study/simulator/sortwidget.cpp \
-	D:/Poorcomputer/Study/simulator/sortwidget.h \
-	D:/Poorcomputer/Study/simulator/sortworker.cpp \
-	D:/Poorcomputer/Study/simulator/sortworker.h \
-	D:/Poorcomputer/Study/simulator/mainwindow.ui \
+	D:/Poorcomputer/Study/Github/AlgoViz/CMakeLists.txt \
+	D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake \
+	D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeRCCompiler.cmake \
+	D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeSystem.cmake \
+	D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h \
+	D:/Poorcomputer/Study/Github/AlgoViz/fileloader.cpp \
+	D:/Poorcomputer/Study/Github/AlgoViz/fileloader.h \
+	D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.cpp \
+	D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.h \
+	D:/Poorcomputer/Study/Github/AlgoViz/main.cpp \
+	D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.cpp \
+	D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.h \
+	D:/Poorcomputer/Study/Github/AlgoViz/sortaction.h \
+	D:/Poorcomputer/Study/Github/AlgoViz/sortwidget.cpp \
+	D:/Poorcomputer/Study/Github/AlgoViz/sortwidget.h \
+	D:/Poorcomputer/Study/Github/AlgoViz/sortworker.cpp \
+	D:/Poorcomputer/Study/Github/AlgoViz/sortworker.h \
+	D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.ui \
 	C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/cmake/win/x64/bin/cmake.exe

@@ -20,7 +20,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         ${TS_FILES}
-        graphwidget.h graphwidget.cpp graphwidget.h sortwidget.cpp sortwidget.h fileloader.cpp fileloader.h sortworker.cpp sortworker.h)
+        graphwidget.h graphwidget.cpp graphwidget.h sortwidget.cpp sortwidget.h fileloader.cpp fileloader.h sortworker.cpp sortworker.h sortaction.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(simulator

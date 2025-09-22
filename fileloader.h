@@ -9,6 +9,7 @@
 #include <QVector>
 
 #include <QVariant>
+#include <QFile>
 
 enum class FileDataType {
     Unknown,
@@ -19,22 +20,25 @@ enum class FileDataType {
 
 class FileLoader {
 public:
-    explicit FileLoader(const QString &filePath);
+    explicit FileLoader();
 
     // 自动识别文件类型
-    FileDataType detectType();
+    FileDataType detectType(QString filePath);
 
     // 三种读取方法（保留）
-    QVector<int> readArray1D();
-    QVector<QVector<int>> readAdjacencyMatrix();
-    QVector<QVector<int>> readAdjacencyList();
+    QVector<int> readArray1D(QString filePath);
+    QVector<QVector<int>> readAdjacencyMatrix(QString filePath);
+    QVector<QVector<QPair<int, int>>> readAdjacencyList(QString filePath);
 
-    // 统一读取
-    QVariant readGraph();
+    void saveToFile(const QString &filePath,  const QVector<int> &data);
+    void saveToFile(const QString &filePath,  const QVector<QVector<int>> &data);
+    void saveToFile(QString filePath, const QVector<QVector<QPair<int, int>>> &adjList);
+
 
 private:
-    QString m_filePath;
     FileDataType m_type = FileDataType::Unknown;
+
+
 };
 
 

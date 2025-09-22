@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Poorcomputer\Study\simulator -BD:\Poorcomputer\Study\simulator\cmake-build-debug-mingw--qt
+  command = "C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Poorcomputer\Study\Github\AlgoViz -BD:\Poorcomputer\Study\Github\AlgoViz\cmake-build-debug-mingw--qt
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for re-checking globbed directories.
 
 rule VERIFY_GLOBS
-  command = "C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" -P D:\Poorcomputer\Study\simulator\cmake-build-debug-mingw--qt\CMakeFiles\VerifyGlobs.cmake
+  command = "C:\Program Files\JetBrains\CLion 2022.3.3\bin\cmake\win\x64\bin\cmake.exe" -P D:\Poorcomputer\Study\Github\AlgoViz\cmake-build-debug-mingw--qt\CMakeFiles\VerifyGlobs.cmake
   description = Re-checking globbed directories...
   generator = 1
 
@@ -68,7 +68,7 @@ rule CLEAN_ADDITIONAL
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\ninja\win\x64\ninja.exe $FILE_ARG -t clean $TARGETS
+  command = "C:\Program Files\JetBrains\CLion 2022.3.3\bin\ninja\win\x64\ninja.exe" $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -76,6 +76,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\ninja\win\x64\ninja.exe -t targets
+  command = "C:\Program Files\JetBrains\CLion 2022.3.3\bin\ninja\win\x64\ninja.exe" -t targets
   description = All primary targets available:
 

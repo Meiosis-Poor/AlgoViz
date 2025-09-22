@@ -1,15 +1,15 @@
 {
-	"BUILD_DIR" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen",
-	"CMAKE_BINARY_DIR" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt",
-	"CMAKE_CURRENT_BINARY_DIR" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt",
-	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Poorcomputer/Study/simulator",
+	"BUILD_DIR" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Poorcomputer/Study/Github/AlgoViz",
 	"CMAKE_EXECUTABLE" : "C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"D:/Poorcomputer/Study/simulator/CMakeLists.txt",
-		"D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeSystem.cmake",
+		"D:/Poorcomputer/Study/Github/AlgoViz/CMakeLists.txt",
+		"D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeSystem.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake",
-		"D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake",
+		"D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake",
@@ -22,7 +22,7 @@
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake",
-		"D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeRCCompiler.cmake",
+		"D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeRCCompiler.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
@@ -341,45 +341,51 @@
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeParseArguments.cmake",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/GNUInstallDirs.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "D:/Poorcomputer/Study/simulator",
-	"DEP_FILE" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/deps",
+	"CMAKE_SOURCE_DIR" : "D:/Poorcomputer/Study/Github/AlgoViz",
+	"DEP_FILE" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "simulator_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"D:/Poorcomputer/Study/simulator/fileloader.h",
+			"D:/Poorcomputer/Study/Github/AlgoViz/fileloader.h",
 			"MU",
 			"EWIEGA46WW/moc_fileloader.cpp",
 			null
 		],
 		[
-			"D:/Poorcomputer/Study/simulator/graphwidget.h",
+			"D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.h",
 			"MU",
 			"EWIEGA46WW/moc_graphwidget.cpp",
 			null
 		],
 		[
-			"D:/Poorcomputer/Study/simulator/mainwindow.h",
+			"D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"D:/Poorcomputer/Study/simulator/sortwidget.h",
+			"D:/Poorcomputer/Study/Github/AlgoViz/sortaction.h",
+			"MU",
+			"EWIEGA46WW/moc_sortaction.cpp",
+			null
+		],
+		[
+			"D:/Poorcomputer/Study/Github/AlgoViz/sortwidget.h",
 			"MU",
 			"EWIEGA46WW/moc_sortwidget.cpp",
 			null
 		],
 		[
-			"D:/Poorcomputer/Study/simulator/sortworker.h",
+			"D:/Poorcomputer/Study/Github/AlgoViz/sortworker.h",
 			"MU",
 			"EWIEGA46WW/moc_sortworker.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/include",
-	"MOC_COMPILATION_FILE" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -434,25 +440,25 @@
 		"-c",
 		"C:/Program Files/JetBrains/CLion 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 24,
-	"PARSE_CACHE_FILE" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/simulator_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/simulator_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.9.2/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.9.2/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 9,
-	"SETTINGS_FILE" : "D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/CMakeFiles/simulator_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/simulator_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/Poorcomputer/Study/simulator/fileloader.cpp", "MU", null ],
-		[ "D:/Poorcomputer/Study/simulator/graphwidget.cpp", "MU", null ],
-		[ "D:/Poorcomputer/Study/simulator/main.cpp", "MU", null ],
-		[ "D:/Poorcomputer/Study/simulator/mainwindow.cpp", "MU", null ],
-		[ "D:/Poorcomputer/Study/simulator/sortwidget.cpp", "MU", null ],
-		[ "D:/Poorcomputer/Study/simulator/sortworker.cpp", "MU", null ]
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/fileloader.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/main.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/sortwidget.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/sortworker.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

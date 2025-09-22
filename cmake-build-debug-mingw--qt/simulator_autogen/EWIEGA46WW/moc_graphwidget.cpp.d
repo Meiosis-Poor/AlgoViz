@@ -1,5 +1,5 @@
-D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_graphwidget.cpp: D:/Poorcomputer/Study/simulator/graphwidget.h \
-  D:/Poorcomputer/Study/simulator/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h \
+D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_graphwidget.cpp: D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.h \
+  D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q20iterator.h \
