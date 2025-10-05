@@ -13,9 +13,9 @@ FileDataType FileLoader::detectType(QString filePath) {
     QTextStream in(&file);
     QString firstLine = in.readLine().trimmed();
 
-    if (firstLine == "ARRAY1D") m_type = FileDataType::Array1D;
-    else if (firstLine == "MATRIX") m_type = FileDataType::AdjacencyMatrix;
-    else if (firstLine == "LIST") m_type = FileDataType::AdjacencyList;
+    if (firstLine.startsWith("ARRAY1D")) m_type = FileDataType::Array1D;
+    else if (firstLine.startsWith("MATRIX")) m_type = FileDataType::AdjacencyMatrix;
+    else if (firstLine.startsWith("LIST")) m_type = FileDataType::AdjacencyList;
     else m_type = FileDataType::Unknown;
 
     return m_type;
@@ -167,7 +167,7 @@ void FileLoader::saveToFile(QString filePath, const QVector<QVector<QPair<int,in
     QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) return;
     QTextStream out(&file);
-    out << "n " << adjList.size() << "\n";
+    out << "LIST " << adjList.size() << "\n";
     for (const auto &neighbors : adjList) {
         QStringList line;
         for (auto [v, w] : neighbors) {

@@ -2,6 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "graphwidget.h"
+#include "graphpanel.h"
+#include "sortwidget.h"
+#include "sortpanel.h"
+#include "graphDSL.h"
+#include "sortDSL.h"
+#include "helpwindow.h"
+#include <QTextEdit>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,9 +24,20 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void createGraphDSLPanel(GraphWidget *graph);
+    void createSortDSLPanel(SortWidget *sort);
 
 private:
     Ui::MainWindow *ui;
     QString lastfilename;
+    // ===== Í¼ DSL ±à¼­Çø =====
+    QDockWidget *graphDslDock;
+    QTextEdit *graphDslEditor;
+    GraphDSLSyntaxHighlighter *graphDslHighlighter;
+
+    // ===== ÅÅÐò DSL ±à¼­Çø =====
+    QDockWidget *sortDslDock;
+    QTextEdit *sortDslEditor;
+    SortDSLSyntaxHighlighter *sortDslHighlighter;
 };
 #endif // MAINWINDOW_H

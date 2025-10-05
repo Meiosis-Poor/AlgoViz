@@ -29,11 +29,14 @@ public:
     void Merge(int left, int mid, int right);
     void HeapSort();
     void Heapify(int i, int n);
+    void setAscending(bool asc) { ascending = asc; }
 
 private:
     int heapSize = 0;
     QVector<int> data;
+    bool ascending = true; // true=ÉýÐò, false=½µÐò
     QQueue<SortAction> ActionQueue;
+    bool cmp(int a, int b);
 };
 
 

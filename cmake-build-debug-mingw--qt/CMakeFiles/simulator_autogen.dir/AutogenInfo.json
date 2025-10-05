@@ -353,9 +353,33 @@
 			null
 		],
 		[
+			"D:/Poorcomputer/Study/Github/AlgoViz/graphDSL.h",
+			"MU",
+			"EWIEGA46WW/moc_graphDSL.cpp",
+			null
+		],
+		[
+			"D:/Poorcomputer/Study/Github/AlgoViz/graphpanel.h",
+			"MU",
+			"EWIEGA46WW/moc_graphpanel.cpp",
+			null
+		],
+		[
 			"D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.h",
 			"MU",
 			"EWIEGA46WW/moc_graphwidget.cpp",
+			null
+		],
+		[
+			"D:/Poorcomputer/Study/Github/AlgoViz/graphworker.h",
+			"MU",
+			"EWIEGA46WW/moc_graphworker.cpp",
+			null
+		],
+		[
+			"D:/Poorcomputer/Study/Github/AlgoViz/helpwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_helpwindow.cpp",
 			null
 		],
 		[
@@ -365,9 +389,21 @@
 			null
 		],
 		[
+			"D:/Poorcomputer/Study/Github/AlgoViz/sortDSL.h",
+			"MU",
+			"EWIEGA46WW/moc_sortDSL.cpp",
+			null
+		],
+		[
 			"D:/Poorcomputer/Study/Github/AlgoViz/sortaction.h",
 			"MU",
 			"EWIEGA46WW/moc_sortaction.cpp",
+			null
+		],
+		[
+			"D:/Poorcomputer/Study/Github/AlgoViz/sortpanel.h",
+			"MU",
+			"EWIEGA46WW/moc_sortpanel.cpp",
 			null
 		],
 		[
@@ -454,9 +490,12 @@
 	"SOURCES" : 
 	[
 		[ "D:/Poorcomputer/Study/Github/AlgoViz/fileloader.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/graphDSL.cpp", "MU", null ],
 		[ "D:/Poorcomputer/Study/Github/AlgoViz/graphwidget.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/graphworker.cpp", "MU", null ],
 		[ "D:/Poorcomputer/Study/Github/AlgoViz/main.cpp", "MU", null ],
 		[ "D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.cpp", "MU", null ],
+		[ "D:/Poorcomputer/Study/Github/AlgoViz/sortDSL.cpp", "MU", null ],
 		[ "D:/Poorcomputer/Study/Github/AlgoViz/sortwidget.cpp", "MU", null ],
 		[ "D:/Poorcomputer/Study/Github/AlgoViz/sortworker.cpp", "MU", null ]
 	],

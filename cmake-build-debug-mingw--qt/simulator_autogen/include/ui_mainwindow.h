@@ -31,12 +31,17 @@ public:
     QAction *resetbtn;
     QAction *randombtn;
     QAction *actionMade_by_Meiosis;
+    QAction *action;
+    QAction *DSLAction;
+    QAction *actionAI;
+    QAction *helpAction;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menu;
     QMenu *menu_2;
     QMenu *menu_3;
     QMenu *menu_4;
+    QMenu *menu_5;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -60,6 +65,14 @@ public:
         randombtn->setObjectName("randombtn");
         actionMade_by_Meiosis = new QAction(MainWindow);
         actionMade_by_Meiosis->setObjectName("actionMade_by_Meiosis");
+        action = new QAction(MainWindow);
+        action->setObjectName("action");
+        DSLAction = new QAction(MainWindow);
+        DSLAction->setObjectName("DSLAction");
+        actionAI = new QAction(MainWindow);
+        actionAI->setObjectName("actionAI");
+        helpAction = new QAction(MainWindow);
+        helpAction->setObjectName("helpAction");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         MainWindow->setCentralWidget(centralwidget);
@@ -74,6 +87,8 @@ public:
         menu_3->setObjectName("menu_3");
         menu_4 = new QMenu(menubar);
         menu_4->setObjectName("menu_4");
+        menu_5 = new QMenu(menubar);
+        menu_5->setObjectName("menu_5");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -83,6 +98,7 @@ public:
         menubar->addAction(menu_3->menuAction());
         menubar->addAction(menu->menuAction());
         menubar->addAction(menu_4->menuAction());
+        menubar->addAction(menu_5->menuAction());
         menu->addAction(sortbtn);
         menu->addAction(graphbtn);
         menu_2->addAction(openbtn);
@@ -90,7 +106,11 @@ public:
         menu_2->addAction(saveotherbtn);
         menu_3->addAction(resetbtn);
         menu_3->addAction(randombtn);
+        menu_4->addAction(helpAction);
         menu_4->addAction(actionMade_by_Meiosis);
+        menu_4->addAction(action);
+        menu_5->addAction(DSLAction);
+        menu_5->addAction(actionAI);
 
         retranslateUi(MainWindow);
 
@@ -108,10 +128,15 @@ public:
         resetbtn->setText(QCoreApplication::translate("MainWindow", "\351\207\215\347\275\256", nullptr));
         randombtn->setText(QCoreApplication::translate("MainWindow", "\351\232\217\346\234\272\346\211\223\344\271\261", nullptr));
         actionMade_by_Meiosis->setText(QCoreApplication::translate("MainWindow", "Made by Meiosis", nullptr));
+        action->setText(QCoreApplication::translate("MainWindow", "\347\224\250\344\272\216\346\225\260\346\215\256\347\273\223\346\236\204\350\257\276\350\256\276", nullptr));
+        DSLAction->setText(QCoreApplication::translate("MainWindow", "\344\273\243\347\240\201\346\250\241\345\274\217", nullptr));
+        actionAI->setText(QCoreApplication::translate("MainWindow", "AI\346\250\241\345\274\217", nullptr));
+        helpAction->setText(QCoreApplication::translate("MainWindow", "\345\270\256\345\212\251\346\211\213\345\206\214", nullptr));
         menu->setTitle(QCoreApplication::translate("MainWindow", "\346\250\241\345\274\217\345\210\207\346\215\242", nullptr));
         menu_2->setTitle(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));
         menu_3->setTitle(QCoreApplication::translate("MainWindow", "\347\274\226\350\276\221", nullptr));
         menu_4->setTitle(QCoreApplication::translate("MainWindow", "\345\270\256\345\212\251", nullptr));
+        menu_5->setTitle(QCoreApplication::translate("MainWindow", "\346\211\251\345\261\225\351\200\211\351\241\271", nullptr));
     } // retranslateUi
 
 };

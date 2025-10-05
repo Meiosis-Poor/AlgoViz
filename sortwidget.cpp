@@ -9,59 +9,110 @@
 #include <QIntValidator>
 
 SortWidget::SortWidget(QWidget *parent) : QWidget(parent) {
-    setButton(this);
+    inint();
+    //setButton(this);
     //setSlider();
 }
 
 void SortWidget::setButton(QWidget* panel) {
     connect(timer, &QTimer::timeout, this, &SortWidget::onNextBtnClicked);
 
-    // ==== 创建按钮 ====
+    // ===== 创建按钮 =====
     QPushButton *lastbtn   = new QPushButton("Last", panel);
     QPushButton *nextbtn   = new QPushButton("Next", panel);
-    QPushButton *sortbtn   = new QPushButton("Please Choose a Sort Method", panel);
+    QComboBox *methodCombo = new QComboBox(panel);
+    methodCombo->addItem("Please Choose a Sort Method");
+    methodCombo->addItems({"Bubble Sort", "Insertion Sort", "Selection Sort", "Quick Sort", "Merge Sort", "Heap Sort"});
+
     QPushButton *autobtn   = new QPushButton("Auto", panel);
     QPushButton *insertbtn = new QPushButton("Insert", panel);
     QPushButton *removebtn = new QPushButton("Remove", panel);
     QPushButton *updatebtn = new QPushButton("Update", panel);
     QPushButton *findbtn   = new QPushButton("Find", panel);
 
-    // ==== 创建滑动条 ====
+    // ===== 创建滑动条 =====
     QSlider *speedSlider = new QSlider(Qt::Horizontal, panel);
     speedSlider->setRange(100, 999);
     speedSlider->setValue(autoInterval);
     QLabel *speedLabel = new QLabel(QString("Speed: %1 ms").arg(autoInterval), panel);
 
+    panel->setFixedHeight(90);
+
+    // ===== 样式美化 =====
+    QString buttonStyle = R"(
+        QWidget {
+            background-color: #2E3440;  /* 深灰蓝背景 */
+            border-bottom: 2px solid #4C566A;
+        }
+        QPushButton {
+            background-color: #5E81AC;
+            color: white;
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-weight: bold;
+        }
+        QPushButton:hover {
+            background-color: #81A1C1;
+        }
+        QPushButton:pressed {
+            background-color: #4C566A;
+        }
+         QComboBox {
+            background-color: white;
+            color: black;
+            border: 1px solid #4C566A;
+            border-radius: 5px;
+            padding: 3px 6px;
+            font-weight: bold;
+        }
+        QComboBox QAbstractItemView {
+            background: white;
+            color: black;
+            selection-background-color: #81A1C1;
+        }
+        QLabel {
+            color: white;
+            font-weight: bold;
+        }
+    )";
+
+    panel->setStyleSheet(buttonStyle);
+
+    // ===== 布局 =====
     QGridLayout *grid = new QGridLayout(panel);
-    grid->setAlignment(Qt::AlignTop); // 顶部对齐
-    grid->setContentsMargins(0, 0, 0, 0);
-    grid->setSpacing(5);
-    // 设置前三个按钮拉长
+    grid->setAlignment(Qt::AlignTop);
+    grid->setContentsMargins(5, 5, 5, 5);
+    grid->setSpacing(6);
+
     QSizePolicy longPolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     lastbtn->setSizePolicy(longPolicy);
     nextbtn->setSizePolicy(longPolicy);
     findbtn->setSizePolicy(longPolicy);
-    speedSlider->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
+    insertbtn->setSizePolicy(longPolicy);
+    removebtn->setSizePolicy(longPolicy);
+    updatebtn->setSizePolicy(longPolicy);
 
-    // 第一排按钮
-    grid->addWidget(lastbtn, 0, 0);
-    grid->addWidget(nextbtn, 0, 1);
-    grid->addWidget(findbtn, 0, 2);
+    // 第一排
+    grid->addWidget(lastbtn,   0, 0);
+    grid->addWidget(nextbtn,   0, 1);
+    grid->addWidget(findbtn,   0, 2);
     grid->addWidget(speedSlider, 0, 4);
-    // 第二排按钮
+
+    // 第二排
     grid->addWidget(insertbtn, 1, 0);
     grid->addWidget(removebtn, 1, 1);
     grid->addWidget(updatebtn, 1, 2);
     grid->addWidget(speedLabel, 1, 4);
 
-    // Sort\auto 按钮占两行
+    // Auto & 下拉框占两行
     autobtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     grid->addWidget(autobtn, 0, 3, 2, 1);
-    sortbtn->setMinimumWidth(200);
-    sortbtn->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    grid->addWidget(sortbtn, 0, 5, 2, 1); // 从 (0,5) 开始，占 2 行 1 列
+    methodCombo->setMinimumWidth(200);
+    grid->addWidget(methodCombo, 0, 5, 2, 1);
+
     grid->setRowStretch(3, 1);
     panel->setLayout(grid);
+
 
     connect(speedSlider, &QSlider::valueChanged, panel, [=](int value) mutable {
         autoInterval = value;
@@ -75,15 +126,14 @@ void SortWidget::setButton(QWidget* panel) {
 
     connect(nextbtn, &QPushButton::clicked, this, [=](){ onNextBtnClicked(); });
 
-    connect(sortbtn, &QPushButton::clicked, this, [=](){
+    connect(methodCombo, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index){
         if(!isFinished) {
             QMessageBox::warning(this, "Warning", "Please wait for the last sorting to finish.");
+            return;
         }
-        method++;
-        method %= 7;
-        if(method == 0) method = 1;
+        method=index;
         inint();
-        setSortbtnText(method, sortbtn);
+        setSortbtnText(method, methodCombo);
         update();
         setSortMethod(method);
     });
@@ -250,7 +300,10 @@ void SortWidget::onLastBtnClicked(){
 void SortWidget::onNextBtnClicked() {
     if(RebuildStack.empty()) {
         SortAction tempaction=worker->takeAction();
-        if(tempaction.index1==-1 && tempaction.index2==-1) return;
+        if(tempaction.index1==-1 && tempaction.index2==-1){
+            timer->stop();
+            return;
+        }
         LastAction=tempaction;
     }
     else{
@@ -286,6 +339,14 @@ void SortWidget::reset() {
     update();
 }
 
+void SortWidget::setAscending(bool ascending){
+    worker->setAscending(ascending);
+    inint();
+    setSortMethod(method);
+    update();
+    return;
+}
+
 void SortWidget::mousePressEvent(QMouseEvent *event) {
     QPoint pos = event->pos();
 
@@ -316,9 +377,7 @@ void SortWidget::mousePressEvent(QMouseEvent *event) {
 void SortWidget::paintEvent(QPaintEvent *) {
     QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing);
-
     if (visualData.isEmpty()) return;
-
     int n = visualData.size();
     int w = (width()*2/3) / n;                   // 每条柱的宽度
     int maxVal = *std::max_element(visualData.begin(), visualData.end());
@@ -333,7 +392,7 @@ void SortWidget::paintBars(QPainter &p, int n, int w, int maxVal) {
         // 高度按比例映射到窗口高度
         int h = static_cast<int>((double)visualData[i] / maxVal * (height()*2/3 ));
         int x = i * w+25;
-        int y = height()*4/5 - h;
+        int y = height() - h;
 
         // 高亮当前交换的两条柱
         if(LastAction.index1 == i || LastAction.index2 == i){
@@ -356,7 +415,7 @@ void SortWidget::paintMerge(QPainter &p, int n, int w, int maxVal) {
     for (int i = 0; i < n; i++) {
         int h = (double)visualData[i] / maxVal * (height()*2/3);
         int x = i * w + 25;
-        int y = height()*4/5 - h;
+        int y = height() - h;
 
         if (i >= LastAction.mergeLeft && i <= LastAction.mergeMid) p.setBrush(Qt::blue);   // 左区间
         else if (i > LastAction.mergeMid && i <= LastAction.mergeRight) p.setBrush(Qt::green); // 右区间
@@ -370,11 +429,12 @@ void SortWidget::paintMerge(QPainter &p, int n, int w, int maxVal) {
         else p.setPen(QPen(Qt::black, 1));  // 默认黑框
         p.drawRect(rect);
         barRects[i] = rect;
+        p.setPen(Qt::yellow);
         p.drawText(x+w/2-5, y-5, QString::number(visualData[i]));
     }
 }
 
-void SortWidget::paintHeap(QPainter &p, int n, int, int) {
+void SortWidget::paintHeap(QPainter &p, int n, int w, int maxVal) {
     if (n == 0) return;
 
     int nodeSize = 30;
@@ -385,7 +445,7 @@ void SortWidget::paintHeap(QPainter &p, int n, int, int) {
         int spacing = width() / (nodesInLevel + 1);
 
         int x = (pos+1) * spacing;
-        int y = 50 + level * 70;
+        int y = 100 + level * 70;
 
         // 画连线
         if (i > 0) {
@@ -395,7 +455,7 @@ void SortWidget::paintHeap(QPainter &p, int n, int, int) {
             int parentPos = parent - parentNodes + 1;
             int parentSpacing = width() / (parentNodes + 1);
             int parentX = (parentPos+1) * parentSpacing;
-            int parentY = 50 + parentLevel * 70;
+            int parentY = 100 + parentLevel * 70;
             p.drawLine(parentX, parentY, x, y);
         }
 
@@ -415,23 +475,23 @@ void SortWidget::paintHeap(QPainter &p, int n, int, int) {
 
 
 
-void SortWidget::setSortbtnText(int method, QPushButton* sortbtn){
+void SortWidget::setSortbtnText(int m, QComboBox* sortcombo){
     isFinished=false;
-    switch(method){
-        case 1: sortbtn->setText("Bubble Sort"); break;
-        case 2: sortbtn->setText("Insertion Sort"); break;
-        case 3: sortbtn->setText("Selection Sort"); break;
-        case 4: sortbtn->setText("Quick Sort"); break;
-        case 5: sortbtn->setText("Merge Sort"); break;
-        case 6: sortbtn->setText("Heap Sort"); break;
-        default: sortbtn->setText("Please Choose a Sort Method"); break;
+    switch(m){
+        case 1: sortcombo->setCurrentText("Bubble Sort"); break;
+        case 2: sortcombo->setCurrentText("Insertion Sort"); break;
+        case 3: sortcombo->setCurrentText("Selection Sort"); break;
+        case 4: sortcombo->setCurrentText("Quick Sort"); break;
+        case 5: sortcombo->setCurrentText("Merge Sort"); break;
+        case 6: sortcombo->setCurrentText("Heap Sort"); break;
+        default: sortcombo->setCurrentText("Please Choose a Sort Method"); break;
     }
     autoRunning=false;
     timer->stop();
 }
 
 
-void SortWidget::setSortMethod(int method){
+void SortWidget::setSortMethod(int m){
     worker->init();
     if(visualData.isEmpty()){
         QString temp;
@@ -441,7 +501,7 @@ void SortWidget::setSortMethod(int method){
         visualData=tempdata;
     }
     worker->setData(visualData);
-    switch(method) {
+    switch(m) {
         case 1: worker->BubbleSort(); break;
         case 2: worker->InsertionSort(); break;
         case 3: worker->SelectionSort(); break;

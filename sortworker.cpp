@@ -38,12 +38,16 @@ void SortWorker::doSwap(int a, int b) {
     return;
 }
 
+bool SortWorker::cmp(int a, int b){
+    return ascending ? (a > b) : (a < b);
+}
+
 
 void SortWorker::BubbleSort() {
     int len = data.size();
     for (int i = 0; i < len - 1; i++) {
         for (int j = 0; j < len - i - 1; j++) {
-            if (data[j] > data[j + 1]) {
+            if (cmp(data[j],data[j + 1])) {
                 doSwap(j, j + 1);
             }
         }
@@ -55,7 +59,7 @@ void SortWorker::InsertionSort() {
     int len = data.size();
     for (int i = 1; i < len; i++) {
         int j = i;
-        while (j > 0 && data[j - 1] > data[j]) {
+        while (j > 0 && cmp(data[j - 1],data[j])) {
             doSwap(j - 1, j);
             j--;
         }
@@ -69,7 +73,7 @@ void SortWorker::SelectionSort() {
     for (int i = 0; i < len - 1; i++) {
         int minIndex = i;
         for (int j = i + 1; j < len; j++) {
-            if (data[j] < data[minIndex]) {
+            if (cmp(data[minIndex],data[j])) {
                 minIndex = j;
             }
         }
@@ -93,7 +97,7 @@ int SortWorker::Partition(int left, int right) {
     int pivot = data[right];
     int i = left - 1;
     for (int j = left; j < right; j++) {
-        if (data[j] < pivot) {
+        if (cmp(pivot,data[j])) {
             i++;
             doSwap(i, j);
         }
@@ -132,7 +136,7 @@ void SortWorker::Merge(int left, int mid, int right) {
         mergeJ = j;
         mergeWrite = left + k;
 
-        if (data[i] <= data[j]) temp[k++] = data[i++];
+        if (!cmp(data[i],data[j])) temp[k++] = data[i++];
         else temp[k++] = data[j++];
     }
 
@@ -179,8 +183,8 @@ void SortWorker::Heapify(int len, int i) {
     int largest = i;
     int l = 2 * i + 1;
     int r = 2 * i + 2;
-    if (l < len && data[l] > data[largest]) largest = l;
-    if (r < len && data[r] > data[largest]) largest = r;
+    if (l < len && cmp(data[l],data[largest])) largest = l;
+    if (r < len && cmp(data[r],data[largest])) largest = r;
     if (largest != i) {
         doSwap(i, largest);
         Heapify(len, largest);
