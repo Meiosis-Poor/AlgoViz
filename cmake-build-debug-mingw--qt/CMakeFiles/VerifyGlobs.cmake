@@ -41,10 +41,12 @@ endif()
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.cpp")
 set(OLD_GLOB
+  "D:/Poorcomputer/Study/Github/AlgoViz/aiassistant.cpp"
   "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/EWIEGA46WW/moc_mainwindow.cpp"
   "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/mocs_compilation.cpp"
   "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+  "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_aiassistant.cpp"
   "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_graphDSL.cpp"
   "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_graphpanel.cpp"
   "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_graphwidget.cpp"
@@ -82,6 +84,7 @@ endif()
 # _directory_contents at C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "D:/Poorcomputer/Study/Github/AlgoViz/*.h")
 set(OLD_GLOB
+  "D:/Poorcomputer/Study/Github/AlgoViz/aiassistant.h"
   "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/include/ui_mainwindow.h"
   "D:/Poorcomputer/Study/Github/AlgoViz/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/simulator_autogen/moc_predefs.h"
   "D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/include/ui_mainwindow.h"

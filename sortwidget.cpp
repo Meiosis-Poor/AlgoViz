@@ -190,16 +190,8 @@ void SortWidget::setButton(QWidget* panel) {
             int pos = posEdit->text().toInt();
             int value = valEdit->text().toInt();
 
-            if (pos >= 0 && pos <= visualData.size()) {
-                visualData.insert(pos, value);
-                highlightIndex = pos;   // 高亮新插入的节点
-                inint();
-                setSortMethod(method);
-                QMessageBox::information(this, "Information", "Node inserted successfully.");
-                update();
-            } else {
-                QMessageBox::warning(this, "Warning", "Invalid position.");
-            }
+            insertNode(pos, value);
+            if (pos >= 0 && pos <= visualData.size()) QMessageBox::information(this, "Information", "Node inserted successfully.");
         }
     });
 
@@ -339,6 +331,19 @@ void SortWidget::reset() {
     update();
 }
 
+void SortWidget::insertNode(int pos, int val) {
+    if (pos >= 0 && pos <= visualData.size()) {
+        visualData.insert(pos, val);
+        highlightIndex = pos;   // 高亮新插入的节点
+        inint();
+        setSortMethod(method);
+        update();
+    }
+    else {
+        QMessageBox::warning(this, "Warning", "Invalid position.");
+    }
+}
+
 void SortWidget::setAscending(bool ascending){
     worker->setAscending(ascending);
     inint();
@@ -379,9 +384,9 @@ void SortWidget::paintEvent(QPaintEvent *) {
     p.setRenderHint(QPainter::Antialiasing);
     if (visualData.isEmpty()) return;
     int n = visualData.size();
-    int w = (width()*2/3) / n;                   // 每条柱的宽度
+    int w = (width()*2/3) / n;
     int maxVal = *std::max_element(visualData.begin(), visualData.end());
-    if(method==1 || method==2 || method==3 || method==4) paintBars(p, n, w, maxVal);
+    if(method<=4) paintBars(p, n, w, maxVal);
     else if(method==5) paintMerge(p, n, w, maxVal);
     else if(method==6) paintHeap(p, n, w, maxVal);
 
@@ -394,19 +399,17 @@ void SortWidget::paintBars(QPainter &p, int n, int w, int maxVal) {
         int x = i * w+25;
         int y = height() - h;
 
-        // 高亮当前交换的两条柱
         if(LastAction.index1 == i || LastAction.index2 == i){
             p.setBrush(Qt::red);
         } else {
             p.setBrush(Qt::blue);
         }
         QRect rect(x, y, w-2, h);
-        if (i == highlightIndex) p.setPen(QPen(Qt::red, 2));  // 高亮红框
-        else p.setPen(QPen(Qt::black, 1));  // 默认黑框
-        p.drawRect(rect);   // 绘制柱状条
+        if (i == highlightIndex) p.setPen(QPen(Qt::red, 2));
+        else p.setPen(QPen(Qt::black, 1));
+        p.drawRect(rect);
         barRects[i] = rect;
-        // 绘制柱子上方的数值
-        p.setPen(Qt::yellow); // 设置文字颜色
+        p.setPen(Qt::yellow);
         p.drawText(x+w/2-5, y - 5, QString::number(visualData[i]));
     }
 }
@@ -459,14 +462,13 @@ void SortWidget::paintHeap(QPainter &p, int n, int w, int maxVal) {
             p.drawLine(parentX, parentY, x, y);
         }
 
-        // 节点颜色
         if (i == LastAction.index1 || i == LastAction.index2) p.setBrush(Qt::red);
-        else if (i >= LastAction.heapSize) p.setBrush(Qt::gray);  // 已移出
+        else if (i >= LastAction.heapSize) p.setBrush(Qt::gray);
         else p.setBrush(Qt::green);
 
         QRect rect(x - nodeSize/2, y - nodeSize/2, nodeSize, nodeSize);
-        if (i == highlightIndex) p.setPen(QPen(Qt::red, 2));  // 高亮红框
-        else p.setPen(QPen(Qt::black, 1));  // 默认黑框
+        if (i == highlightIndex) p.setPen(QPen(Qt::red, 2));
+        else p.setPen(QPen(Qt::black, 1));
         p.drawEllipse(rect);
         heapRects[i] = rect;
         p.drawText(rect, Qt::AlignCenter, QString::number(visualData[i]));
@@ -511,6 +513,8 @@ void SortWidget::setSortMethod(int m){
         default: break;
     }
     isFinished=true;
+    autoRunning=false;
+    timer->stop();
 }
 
 bool SortWidget::saveToFile(const QString &fileName) {

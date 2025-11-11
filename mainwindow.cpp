@@ -14,6 +14,9 @@
 #include <QTextEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QInputDialog>
+#include <QString>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -125,11 +128,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     connect(ui->helpAction, &QAction::triggered, this, [=]() {
-        // 这里可以指定你的 Markdown 文件路径
         HelpWindow *helpWin = new HelpWindow();
         helpWin->show();
     });
-
 
 
     //点击触发模式切换
@@ -154,10 +155,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->openbtn, &QAction::triggered, this, [=]() {
         QString filePath = QFileDialog::getOpenFileName(
-                this,                       // 父窗口
-                "选择打开文件",              // 对话框标题
-                QDir::homePath(),           // 默认路径
-                "Text Files (*.txt);;All Files (*.*)" // 文件类型过滤
+                this,
+                "选择打开文件",
+                QDir::homePath(),
+                "Text Files (*.txt);;All Files (*.*)"
         );
         if (filePath.isEmpty()) {
             return;
@@ -173,10 +174,10 @@ MainWindow::MainWindow(QWidget *parent)
         QString filePath;
         if(lastfilename.isEmpty()) {
             filePath = QFileDialog::getSaveFileName(
-                    this,                       // 父窗口
-                    "选择另存为位置",              // 对话框标题
-                    QDir::homePath(),           // 默认路径
-                    "Text Files (*.txt);;All Files (*.*)" // 文件类型过滤
+                    this,
+                    "选择另存为位置",
+                    QDir::homePath(),
+                    "Text Files (*.txt);;All Files (*.*)"
             );
         }
         else filePath = lastfilename;
@@ -192,10 +193,10 @@ MainWindow::MainWindow(QWidget *parent)
     });
     connect(ui->saveotherbtn, &QAction::triggered, this, [=]() {
         QString filePath = QFileDialog::getSaveFileName(
-                this,                       // 父窗口
-                "选择另存为位置",              // 对话框标题
-                QDir::homePath(),           // 默认路径
-                "Text Files (*.txt);;All Files (*.*)" // 文件类型过滤
+                this,
+                "选择另存为位置",
+                QDir::homePath(),
+                "Text Files (*.txt);;All Files (*.*)"
         );
         if (filePath.isEmpty()) {
             return;
@@ -222,6 +223,38 @@ MainWindow::MainWindow(QWidget *parent)
         else{
             sort->sortArea->randomize();
         }
+    });
+
+    connect(ui->actionAI, &QAction::triggered, this, [=]() {
+        bool ok;
+        QString prompt=QInputDialog::getText(
+                this,                    // 父窗口
+                "AI 提示输入",            // 对话框标题
+                "请输入提示词:",           // 标签文本
+                QLineEdit::Normal,       // 输入模式
+                "",                       // 默认值
+                &ok                      // 是否点击 OK
+        );
+        if (ok && !prompt.isEmpty()) {
+            QString doc;
+            if(stacked->currentIndex() == 0) doc=graphdoc;
+            else doc=sortdoc;
+            ai->generateDSL(doc, prompt);
+        }
+        else {
+            QMessageBox::information(this, "提示", "未输入提示词");
+        }
+    });
+
+    connect(ai, &AIAssistant::dslReady, this, [this, stacked](const QString &dslCode){
+        if(stacked->currentIndex() == 0) graphDslEditor->setPlainText(dslCode);
+        else sortDslEditor->setPlainText(dslCode);
+        QMessageBox::information(this, "提示", "生成成功");
+    });
+
+    connect(ai, &AIAssistant::errorOccurred, this, [this](const QString &err){
+        QMessageBox::warning(this, "错误", "AI 错误：" + err);
+        qDebug() << "AI Error:" << err;
     });
 }
 
@@ -284,7 +317,6 @@ void MainWindow::createSortDSLPanel(SortWidget *sort) {
     sortDslEditor->setPlaceholderText("Write your Sort DSL code here...");
     layout->addWidget(sortDslEditor);
 
-    // 运行按钮
     QPushButton *runButton = new QPushButton("Run Sort DSL", container);
     layout->addWidget(runButton);
 
@@ -298,7 +330,6 @@ void MainWindow::createSortDSLPanel(SortWidget *sort) {
     // 解释器
     auto *interpreter = new SortDSLInterpreter(sort, this);
 
-    // 运行
     connect(runButton, &QPushButton::clicked, this, [this, interpreter]() {
         interpreter->run(sortDslEditor->toPlainText());
     });

@@ -2,6 +2,9 @@
 #include <QMessageBox>
 #include <QRegularExpression>
 #include <QStringList>
+#include <QTextCharFormat>
+#include <QBrush>
+#include <QColor>
 
 SortDSLInterpreter::SortDSLInterpreter(SortWidget *sort, QObject *parent)
         : QObject(parent), sort(sort) {}
@@ -9,11 +12,52 @@ SortDSLInterpreter::SortDSLInterpreter(SortWidget *sort, QObject *parent)
 // -------------------- 主执行入口 --------------------
 void SortDSLInterpreter::run(const QString &code) {
     QStringList lines = code.split('\n', Qt::SkipEmptyParts);
-    int lineNo = 1;
-    for (const QString &rawLine : lines) {
-        QString line = rawLine.trimmed();
-        if (line.isEmpty() || line.startsWith("#")) continue;
+    executeBlock(lines);
+}
 
+// -------------------- 支持块执行（for、let） --------------------
+void SortDSLInterpreter::executeBlock(const QStringList &lines, int startLine) {
+    int lineNo = startLine;
+    while (lineNo <= lines.size()) {
+        QString line = lines[lineNo - 1].trimmed();
+        if (line.isEmpty() || line.startsWith("#")) { lineNo++; continue; }
+
+        // ---------- let 变量定义 ----------
+        QRegularExpression letRe(R"(^let\s+(\w+)\s*=\s*(\d+)$)");
+        auto letMatch = letRe.match(line);
+        if (letMatch.hasMatch()) {
+            variables[letMatch.captured(1)] = letMatch.captured(2).toInt();
+            lineNo++;
+            continue;
+        }
+
+        // ---------- for 循环 ----------
+        QRegularExpression forRe(R"(^for\s+(\w+)\s+in\s+range\s*\(\s*([\w]+)\s*,\s*([\w]+)\s*\)$)");
+        auto forMatch = forRe.match(line);
+        if (forMatch.hasMatch()) {
+            QString var = forMatch.captured(1);
+            int start = expandArg(forMatch.captured(2));
+            int end   = expandArg(forMatch.captured(3));
+
+            // 收集循环块
+            QStringList subBlock;
+            lineNo++;
+            while (lineNo <= lines.size() && !lines[lineNo - 1].trimmed().startsWith("end")) {
+                subBlock.append(lines[lineNo - 1]);
+                lineNo++;
+            }
+
+            // 循环执行
+            for (int i = start; i < end; ++i) {
+                variables[var] = i;
+                executeBlock(subBlock, 1);
+            }
+
+            lineNo++; // 跳过 end
+            continue;
+        }
+
+        // ---------- 单行命令 ----------
         try {
             executeLine(line, lineNo);
         } catch (...) {
@@ -22,6 +66,14 @@ void SortDSLInterpreter::run(const QString &code) {
         }
         lineNo++;
     }
+}
+
+// -------------------- 参数变量替换 --------------------
+int SortDSLInterpreter::expandArg(const QString &arg) const {
+    QString a = arg.trimmed();
+    if (variables.contains(a))
+        return variables[a];
+    return a.toInt();
 }
 
 // -------------------- 执行单行命令 --------------------
@@ -38,13 +90,23 @@ void SortDSLInterpreter::executeLine(const QString &line, int lineNo) {
     }
 
     QStringList list = args.split(',', Qt::SkipEmptyParts);
-    for (QString &arg : list)
-        arg = arg.trimmed();
+    for (int i = 0; i < list.size(); ++i)
+        list[i] = QString::number(expandArg(list[i]));
 
-    // --------------- DSL 命令解析 ---------------
-    if (cmd == "insert" && list.size() == 1) {
-        sort->visualData.append(list[0].toInt());
-        sort->update();
+    // ---------- DSL 命令 ----------
+    if (cmd == "insert") {
+        if (list.size() == 1) {
+            int val = list[0].toInt();
+            int pos = sort->visualData.size();
+            sort->insertNode(pos, val);
+        } else if (list.size() == 2) {
+            int pos = list[0].toInt();
+            int val = list[1].toInt();
+            sort->insertNode(pos, val);
+        } else {
+            QMessageBox::warning(nullptr, "DSL Error",
+                                 QString("Invalid insert syntax at line %1").arg(lineNo));
+        }
     }
     else if (cmd == "remove" && list.size() == 1) {
         int idx = list[0].toInt();
@@ -52,37 +114,27 @@ void SortDSLInterpreter::executeLine(const QString &line, int lineNo) {
             sort->visualData.removeAt(idx);
         sort->update();
     }
-    else if (cmd == "setMethod" && list.size() == 1) {
-        sort->method = list[0].toInt();
-        sort->setSortMethod(sort->method);
-        sort->update();
-    }
-    else if (cmd == "setAscending" && list.size() == 1) {
-        bool asc = (list[0].toLower() == "true" || list[0] == "1");
-        sort->setAscending(asc);
-    }
-    else if (cmd == "autoRun" && list.size() == 1) {
-        sort->autoInterval = list[0].toInt();
-        sort->timer->start(sort->autoInterval);
-        sort->autoRunning = true;
-    }
-    else if (cmd == "stop") {
-        sort->timer->stop();
-        sort->autoRunning = false;
-    }
-    else if (cmd == "reset") {
-        sort->reset();
-    }
-    else if (cmd == "clear") {
-        sort->visualData.clear();
-        sort->update();
-    }
+    else if (cmd == "sort") sort->setSortMethod(sort->method), sort->update();
+    else if (cmd == "sortBubble") sort->setSortMethod(1), sort->update();
+    else if (cmd == "sortInsertion") sort->setSortMethod(2), sort->update();
+    else if (cmd == "sortSelection") sort->setSortMethod(3), sort->update();
+    else if (cmd == "sortQuick") sort->setSortMethod(4), sort->update();
+    else if (cmd == "sortMerge") sort->setSortMethod(5), sort->update();
+    else if (cmd == "sortHeap") sort->setSortMethod(6), sort->update();
+    else if (cmd == "setAscending" && list.size() == 1)
+        sort->setAscending(list[0] == "1" || list[0].toLower() == "true");
+    else if (cmd == "autoRun" && list.size() == 1)
+        sort->autoInterval = list[0].toInt(), sort->timer->start(sort->autoInterval), sort->autoRunning = true;
+    else if (cmd == "stop") sort->timer->stop(), sort->autoRunning = false;
+    else if (cmd == "reset") sort->reset();
+    else if (cmd == "clear") sort->visualData.clear(), sort->update();
     else {
         QMessageBox::warning(nullptr, "DSL Error",
                              QString("Unknown command at line %1: %2").arg(lineNo).arg(cmd));
     }
 }
 
+// -------------------- DSL 高亮器 --------------------
 SortDSLSyntaxHighlighter::SortDSLSyntaxHighlighter(QTextDocument *parent)
         : QSyntaxHighlighter(parent) {
 
@@ -91,13 +143,14 @@ SortDSLSyntaxHighlighter::SortDSLSyntaxHighlighter(QTextDocument *parent)
     keywordFormat.setFontWeight(QFont::Bold);
 
     QStringList keywords = {
-            "insert","remove","setMethod","setAscending",
-            "autoRun","stop","reset","clear"
+            "let","for","end",
+            "insert","remove","setAscending",
+            "autoRun","stop","reset","clear",
+            "sort","sortBubble","sortInsertion","sortSelection","sortQuick","sortMerge","sortHeap"
     };
 
-    for (const QString &kw : keywords) {
+    for (const QString &kw : keywords)
         rules.append({QRegularExpression("\\b" + kw + "\\b"), keywordFormat});
-    }
 
     QTextCharFormat numberFormat;
     numberFormat.setForeground(QBrush(QColor("darkOrange")));
@@ -114,9 +167,9 @@ SortDSLSyntaxHighlighter::SortDSLSyntaxHighlighter(QTextDocument *parent)
 
 void SortDSLSyntaxHighlighter::highlightBlock(const QString &text) {
     for (const auto &rule : rules) {
-        QRegularExpressionMatchIterator i = rule.pattern.globalMatch(text);
-        while (i.hasNext()) {
-            auto match = i.next();
+        auto it = rule.pattern.globalMatch(text);
+        while (it.hasNext()) {
+            auto match = it.next();
             setFormat(match.capturedStart(), match.capturedLength(), rule.format);
         }
     }

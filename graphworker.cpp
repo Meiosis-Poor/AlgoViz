@@ -189,11 +189,11 @@ void GraphWorker::kruskal() {
     }
 }
 
-void GraphWorker::dijkstra(int start) {
+QVector<int> GraphWorker::dijkstra(int start) {
     init();
     dist.fill(INT_MAX, n);
     dist[start] = 0;
-
+    QVector<int> fa(n);
     using P = QPair<int,int>; // <distance, node>
 
     // priority_queue 默认大顶堆，所以使用负距离
@@ -215,6 +215,7 @@ void GraphWorker::dijkstra(int start) {
                         int temp = dist[v];
                         dist[v] = dist[u] + w;
                         pq.push({dist[v], v});
+                        fa[v]=u;
                         stepBuffer.push_back({Step::UpdateDist, v, {temp,dist[v]}});
                     }
                 }
@@ -229,12 +230,14 @@ void GraphWorker::dijkstra(int start) {
                         int temp = dist[v];
                         dist[v] = dist[u] + w;
                         pq.push({dist[v], v});
+                        fa[v]=u;
                         stepBuffer.push_back({Step::UpdateDist, v, {temp,dist[v]}});
                     }
                 }
             }
         }
     }
+    return fa;
 }
 
 

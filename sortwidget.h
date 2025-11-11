@@ -32,6 +32,7 @@ public:
     void setAscending(bool ascending);
     void setSortMethod(int m);
     void setSortbtnText(int m, QComboBox* sortcombo);
+    void insertNode(int pos, int val);
     void paintBars(QPainter& p, int n, int w, int maxVal);
     void paintMerge(QPainter& p, int n, int w, int maxVal);
     void paintHeap(QPainter& p, int n, int w, int maxVal);

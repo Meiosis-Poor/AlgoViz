@@ -40,11 +40,14 @@ public:
 
     // 主执行入口
     void run(const QString &code);
+    void executeBlock(const QStringList &lines, int startLine=1);
+    int expandArg(const QString &arg)const;
 
 private:
     void executeLine(const QString &line, int lineNo);
 
     SortWidget *sort;
+    QMap<QString, int> variables;
 };
 
 

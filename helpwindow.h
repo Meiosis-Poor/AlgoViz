@@ -51,24 +51,24 @@ public:
 
         // 美化样式
         treeWidget->setStyleSheet(R"(
-QTreeWidget {
-    background-color: #2C3E50;
-    color: #ECF0F1;
-    font-size: 14px;
-    border: none;
-}
-QTreeWidget::item {
-    padding: 8px;
-}
-QTreeWidget::item:selected {
-    background-color: #3498DB;
-    color: white;
-    border-radius: 5px;
-}
-QTreeWidget::item:hover {
-    background-color: #2980B9;
-}
-)");
+            QTreeWidget {
+                background-color: #2C3E50;
+                color: #ECF0F1;
+                font-size: 14px;
+                border: none;
+            }
+            QTreeWidget::item {
+                padding: 8px;
+            }
+            QTreeWidget::item:selected {
+                background-color: #3498DB;
+                color: white;
+                border-radius: 5px;
+            }
+            QTreeWidget::item:hover {
+                background-color: #2980B9;
+            }
+            )");
 
         // 右侧显示区域
         textEdit = new QTextEdit(splitter);
@@ -93,18 +93,24 @@ private slots:
         QString text = current->text(0);
 
         if (text == "首页") {
-            textEdit->setHtml("<h2>模拟器介绍</h2><p>这里是整体模拟器的介绍...</p>");
-        } else if (text == "排序模式") {
-            textEdit->setHtml("<h2>排序模式</h2><p>这里介绍排序模式的简单功能和使用方法...</p>");
-        } else if (text == "排序 DSL") {
-            textEdit->setHtml("<h2>排序 DSL</h2><p>这里介绍排序 DSL 的语法和用法...</p>");
-        } else if (text == "图模式") {
-            textEdit->setHtml("<h2>图模式</h2><p>这里介绍图模式的简单功能和使用方法...</p>");
-        } else if (text == "图 DSL") {
+            loadFromMd("./docs/menu.md");
+        }
+        else if (text == "排序模式") {
+            loadFromMd("./docs/SortManual.md");
+        }
+        else if (text == "排序 DSL") {
+            loadFromMd("./docs/SortDSLManual.md");
+        }
+        else if (text == "图模式") {
+            loadFromMd("./docs/GraphManual.md");
+        }
+        else if (text == "图 DSL") {
             loadFromMd("./docs/GraphDSLManual.md");
-        } else if (text == "AI 辅助") {
-            textEdit->setHtml("<h2>AI 辅助</h2><p>这里介绍 AI 辅助功能...</p>");
-        } else {
+        }
+        else if (text == "AI 辅助") {
+            loadFromMd("./docs/ai.md");
+        }
+        else {
             textEdit->setHtml("<p>未知选项</p>");
         }
     }
@@ -118,12 +124,7 @@ private slots:
         QByteArray data = file.readAll();
         QString mdText = QString::fromUtf8(data);
         file.close();
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         textEdit->setMarkdown(mdText);
-#else
-        textEdit->setPlainText(mdText);
-#endif
     }
 
 private:

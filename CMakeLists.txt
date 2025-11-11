@@ -11,6 +11,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Network LinguistTools)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Network LinguistTools)
+
 
 set(TS_FILES simulator_zh_CN.ts)
 
@@ -20,7 +23,8 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         ${TS_FILES}
-        graphwidget.h graphwidget.cpp graphwidget.h sortwidget.cpp sortwidget.h fileloader.cpp fileloader.h sortworker.cpp sortworker.h sortaction.h graphworker.cpp graphworker.h graphDSL.cpp graphDSL.h helpwindow.h graphpanel.h sortpanel.h sortDSL.cpp sortDSL.h)
+        graphwidget.h graphwidget.cpp graphwidget.h sortwidget.cpp sortwidget.h fileloader.cpp fileloader.h sortworker.cpp sortworker.h sortaction.h graphworker.cpp graphworker.h graphDSL.cpp graphDSL.h helpwindow.h graphpanel.h sortpanel.h sortDSL.cpp sortDSL.h  aiassistant.cpp aiassistant.h
+        )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(simulator
@@ -50,6 +54,8 @@ else()
 endif()
 
 target_link_libraries(simulator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+target_link_libraries(simulator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Network)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

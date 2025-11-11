@@ -26,8 +26,15 @@ void GraphWidget::init() {
     previousEdge.clear();
     RebuildStack.clear();
     LastStack.clear();
+    dijfa.clear();
     selectedNode1 = -1;
     selectedNode2 = -1;
+}
+
+void GraphWidget::clear() {
+    init();
+    intdata.clear();
+    pairdata.clear();
 }
 
 void GraphWidget::setButton(QWidget *panel) {
@@ -227,14 +234,12 @@ void GraphWidget::onNextBtnClicked() {
 void GraphWidget::random(int nodeCount, int maxEdgeValue, double edgeProbability) {
     if (nodeCount <= 0) return;
 
-    // 清空原有数据
     intdata.clear();
     pairdata.clear();
 
-    // 初始化随机数种子
     std::srand(std::time(nullptr));
 
-    if (nowStructureIndex == 0) { // 邻接矩阵
+    if (nowStructureIndex == 0) {
         intdata.resize(nodeCount, QVector<int>(nodeCount, 0));
         for (int i = 0; i < nodeCount; i++) {
             for (int j = 0; j < nodeCount; j++) {
@@ -244,7 +249,7 @@ void GraphWidget::random(int nodeCount, int maxEdgeValue, double edgeProbability
             }
         }
     }
-    else { // 邻接表
+    else {
         pairdata.resize(nodeCount);
         for (int i = 0; i < nodeCount; i++) {
             for (int j = 0; j < nodeCount; j++) {
@@ -305,16 +310,17 @@ void GraphWidget::setMethod(int m) {
         case 3: worker->primall(); break;
         case 4: worker->kruskal(); break;
         case 5:
-        { // Dijkstra
+        {
+            dijfa.clear();
             distTable->setVisible(true);
             int n_size = 0;
             if(nowStructureIndex == 0) n_size = intdata.size();
             else n_size = pairdata.size();
             dist.fill(INT_MAX, n_size);
-            int start = QInputDialog::getInt(this, "Dijkstra", "Start Node:", 0, 0, n_size-1, 1);
-            dist[start]=0;
+            dijstart = QInputDialog::getInt(this, "Dijkstra", "Start Node:", 0, 0, n_size-1, 1);
+            dist[dijstart]=0;
             drawDistTable();
-            worker->dijkstra(start);
+            dijfa=worker->dijkstra(dijstart);
         }
             break;
         default: break;
@@ -346,11 +352,11 @@ void GraphWidget::drawDistTable() {
 
 void GraphWidget::drawGraphArea(QPainter &p) {
     int n = 0;
-    if(nowStructureIndex == 0) { // 邻接矩阵
+    if(nowStructureIndex == 0) {
         if(intdata.isEmpty()) return;
         n = intdata.size();
     }
-    else { // 邻接表
+    else {
         if(pairdata.isEmpty()) return;
         n = pairdata.size();
     }
@@ -374,11 +380,13 @@ void GraphWidget::drawGraphArea(QPainter &p) {
 
     p.setPen(QPen(Qt::black, 2));
 
-    if(nowStructureIndex == 0) { // 邻接矩阵
+    if(nowStructureIndex == 0) {
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 if(intdata[i][j] != 0){
-                    if((i == selectedNode1 && j == selectedNode2) )
+                    if(method==5 && dijpath.contains(QPair<int,int>(i,j)))
+                        p.setPen(QPen(Qt::yellow, 2));
+                    else if((i == selectedNode1 && j == selectedNode2) )
                         p.setPen(QPen(Qt::yellow, 2));
                     else if(nowStep.type==Step::TraverseEdge &&  nowStep.edge.first==i && nowStep.edge.second==j)
                         p.setPen(QPen(Qt::red, 2));
@@ -391,11 +399,13 @@ void GraphWidget::drawGraphArea(QPainter &p) {
             }
         }
     }
-    else { // 邻接表
+    else {
         for(int i=0;i<n;i++){
             for(auto &edge: pairdata[i]){
                 int j = edge.first;
-                if((i == selectedNode1 && j == selectedNode2) )
+                if(method==5 && dijpath.contains(QPair<int,int>(i,j)))
+                    p.setPen(QPen(Qt::yellow, 2));
+                else if((i == selectedNode1 && j == selectedNode2) )
                     p.setPen(QPen(Qt::yellow, 2));
                 else if(nowStep.type==Step::TraverseEdge &&  nowStep.edge.first==i && nowStep.edge.second==j)
                     p.setPen(QPen(Qt::red, 2));
@@ -415,7 +425,6 @@ void GraphWidget::drawGraphArea(QPainter &p) {
     }
     p.setPen(QPen(Qt::black, 2));
 
-    // 绘制节点
     for(int i=0;i<n;i++){
         p.setBrush((i == selectedNode1 || i == selectedNode2) ? Qt::yellow : (nowStep.type==Step::VisitNode && nowStep.node==i)? Qt::red : (previousNode.contains(i)) ? Qt::green : Qt::white);
         p.drawEllipse(nodeRect[i]);
@@ -436,7 +445,6 @@ void GraphWidget::drawStructureArea(QPainter &p) {
     p.setBrush(Qt::white);
 
     if (nowStructureIndex == 0) {
-        // ==== 邻接矩阵 ====
         if (intdata.isEmpty()) return;
         int n = intdata.size();
         int maxCellWidth = w / n;
@@ -462,11 +470,11 @@ void GraphWidget::drawStructureArea(QPainter &p) {
 
         QFontMetrics fm(p.font());
         int topMarginY = 10;
-        int rowPadding = 6; // 每行文本上下内边距
-        int rowHeight = fm.height() + rowPadding; // 行高
+        int rowPadding = 6;
+        int rowHeight = fm.height() + rowPadding;
         int startY = top + topMarginY;
-        int leftX = left + 5; // 左边距
-        int rightX = left + w - 5; // 右边界
+        int leftX = left + 5;
+        int rightX = left + w - 5;
 
         for (int i = 0; i < pairdata.size(); i++) {
             int yy = startY;
@@ -491,10 +499,9 @@ void GraphWidget::drawStructureArea(QPainter &p) {
                 // 换行处理
                 if (offsetX + textSize.width() + 6 > rightX) {
                     offsetX = prefixRect.right() + 5;
-                    yy += rowHeight + 5; // 换行加一点间距
+                    yy += rowHeight + 5;
                 }
 
-                // 节点文本白底框
                 QRect nodeRect(offsetX, yy, textSize.width() + 6, rowHeight);
                 p.setBrush(Qt::white);
                 p.fillRect(nodeRect, Qt::white);
@@ -509,10 +516,10 @@ void GraphWidget::drawStructureArea(QPainter &p) {
                 p.setPen(Qt::yellow);
                 drawArrow(p, start, end, 0, "");
 
-                offsetX = end.x() + 5; // 下一个节点偏移
+                offsetX = end.x() + 5;
             }
 
-            startY = yy + rowHeight + 5; // 下一行开始Y坐标
+            startY = yy + rowHeight + 5;
         }
 
     }
@@ -579,19 +586,24 @@ void GraphWidget::drawArrow(QPainter &p, const QPoint &startCenter, const QPoint
 
 
 
-
-
-// === 鼠标点击事件 ===
 void GraphWidget::mousePressEvent(QMouseEvent *event) {
     for (int i = 0; i < nodeRect.size(); i++) {
         if (nodeRect[i].contains(event->pos())) {
             if(selectedNode1 == -1) selectedNode1 = i;
-            else if(selectedNode2 == -1 && selectedNode1!= i) selectedNode2 = i;
+            else if(method!=5 && selectedNode2 == -1 && selectedNode1!= i) selectedNode2 = i;
             else{
                 selectedNode1 = i;
                 selectedNode2 = -1;
             }
-            update(); // 重绘
+            if(method==5 && selectedNode1!= -1){
+                int now=selectedNode1;
+                dijpath.clear();
+                while(now!=dijstart) {
+                    dijpath.push_back(QPair<int, int>(dijfa[now], now));
+                    now=dijfa[now];
+                }
+            }
+            update();
             return;
         }
     }
@@ -643,15 +655,13 @@ void GraphWidget::deleteNode() {
     bool ok;
     int nownode = QInputDialog::getInt(this, "Delete Node", "NodeId:", 0, 0,
                                        nowStructureIndex==0 ? intdata.size()-1 : pairdata.size()-1, 1, &ok);
-    if(!ok) return; // 用户取消
+    if(!ok) return;
     if(nownode<0 || nownode>=intdata.size()){
         QMessageBox::warning(this, "Error", "Invalid NodeId.");
         return;
     }
     if(nowStructureIndex == 0){
-        // 删除对应行
         intdata.erase(intdata.begin() + nownode);
-        // 删除对应列
         for(int i = 0; i < intdata.size(); i++){
             if(nownode < intdata[i].size())
                 intdata[i].erase(intdata[i].begin() + nownode);
@@ -659,13 +669,12 @@ void GraphWidget::deleteNode() {
     }
     else{
         pairdata.erase(pairdata.begin() + nownode);
-        // 删除其他节点指向该节点的边
         for(auto &edges : pairdata){
             for(int j = edges.size() - 1; j >= 0; j--){
                 if(edges[j].first == nownode)
                     edges.erase(edges.begin() + j);
                 else if(edges[j].first > nownode)
-                    edges[j].first--; // 更新索引
+                    edges[j].first--;
             }
         }
     }
@@ -774,9 +783,7 @@ void GraphWidget::deleteNodeById(int id){
         throw std::invalid_argument("Invalid NodeId.");
     }
     if(nowStructureIndex == 0){
-        // 删除对应行
         intdata.erase(intdata.begin() + id);
-        // 删除对应列
         for(int i = 0; i < intdata.size(); i++){
             if(id < intdata[i].size())
                 intdata[i].erase(intdata[i].begin() + id);
@@ -784,13 +791,12 @@ void GraphWidget::deleteNodeById(int id){
     }
     else{
         pairdata.erase(pairdata.begin() + id);
-        // 删除其他节点指向该节点的边
         for(auto &edges : pairdata){
             for(int j = edges.size() - 1; j >= 0; j--){
                 if(edges[j].first == id)
                     edges.erase(edges.begin() + j);
                 else if(edges[j].first > id)
-                    edges[j].first--; // 更新索引
+                    edges[j].first--;
             }
         }
     }
@@ -897,8 +903,13 @@ void  GraphWidget::runDijkstra(int start){
     }
     method = 5;
     methodCombo->setCurrentIndex(5);
+    dijstart=start;
     if(nowStructureIndex == 0) worker->setData(intdata);
     else worker->setData(pairdata);
-    worker->dijkstra(start);
+    dijfa.clear();
+    dist.fill(INT_MAX, dist.size());
+    dist[dijstart]=0;
+    drawDistTable();
+    dijfa=worker->dijkstra(dijstart);
     update();
 }

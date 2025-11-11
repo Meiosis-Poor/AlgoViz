@@ -1,13 +1,16 @@
 D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.h \
   D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QFile \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QFlags \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QMap \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QMetaType \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QPair \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QQueue \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QRect \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QRegularExpression \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QSharedDataPointer \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QSize \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QStack \
@@ -15,6 +18,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QThread \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QTimer \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QUrl \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QVariant \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QVector \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q17memory.h \
@@ -24,6 +28,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/q26numeric.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qalgorithms.h \
@@ -41,6 +46,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qcompare_impl.h \
@@ -55,8 +61,10 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtCore/qcoreapplication.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qcoreevent.h \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/qcryptographichash.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qelapsedtimer.h \
@@ -219,6 +227,24 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/QNetworkAccessManager \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/QSslConfiguration \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qabstractsocket.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qhostaddress.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qhttpheaders.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qnetworkrequest.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qssl.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslcertificate.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslconfiguration.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslerror.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslsocket.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtcpsocket.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetwork-config.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetworkexports.h \
+  C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetworkglobal.h \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QCompleter \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QLabel \
@@ -521,6 +547,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
   D:/Poorcomputer/Study/Github/AlgoViz/GraphWidget.h \
+  D:/Poorcomputer/Study/Github/AlgoViz/aiassistant.h \
   D:/Poorcomputer/Study/Github/AlgoViz/fileloader.h \
   D:/Poorcomputer/Study/Github/AlgoViz/graphDSL.h \
   D:/Poorcomputer/Study/Github/AlgoViz/graphpanel.h \

@@ -32,13 +32,16 @@ simulator_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QFile \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/QFlags \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QList \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QMap \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/QMetaType \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QObject \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QPair \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QQueue \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QRect \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QRegularExpression \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/QSharedDataPointer \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QSize \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QSizeF \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QStack \
@@ -46,6 +49,7 @@ simulator_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QStringList \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QThread \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QTimer \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/QUrl \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QVariant \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/QVector \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/q17memory.h \
@@ -55,6 +59,7 @@ simulator_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/q20type_traits.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/q20utility.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/q23utility.h \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/q26numeric.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qalgorithms.h \
@@ -72,6 +77,7 @@ simulator_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qbytearraylist.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qbytearrayview.h \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/qcalendar.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qchar.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qcompare_impl.h \
@@ -86,8 +92,10 @@ simulator_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qcoreapplication.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qcoreevent.h \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/qcryptographichash.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qdarwinhelpers.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qdatastream.h \
+	C:/Qt/6.9.2/mingw_64/include/QtCore/qdatetime.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qdeadlinetimer.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
 	C:/Qt/6.9.2/mingw_64/include/QtCore/qelapsedtimer.h \
@@ -250,6 +258,24 @@ simulator_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/include/QtGui/qvectornd.h \
 	C:/Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/QNetworkAccessManager \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/QSslConfiguration \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qabstractsocket.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qhostaddress.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qhttpheaders.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qnetworkrequest.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qssl.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslcertificate.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslconfiguration.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslerror.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qsslsocket.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtcpsocket.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetwork-config.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetworkexports.h \
+	C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetworkglobal.h \
 	C:/Qt/6.9.2/mingw_64/include/QtWidgets/QComboBox \
 	C:/Qt/6.9.2/mingw_64/include/QtWidgets/QCompleter \
 	C:/Qt/6.9.2/mingw_64/include/QtWidgets/QLabel \
@@ -448,6 +474,38 @@ simulator_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsTargets-relwithdebinfo.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsTargets.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsVersionlessTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateAdditionalTargetInfo.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateConfig.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateConfigVersion.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateConfigVersionImpl.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateDependencies.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateTargets.cmake \
+	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateVersionlessAliasTargets.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake \
@@ -734,6 +792,8 @@ simulator_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
 	D:/Poorcomputer/Study/Github/AlgoViz/CMakeLists.txt \
+	D:/Poorcomputer/Study/Github/AlgoViz/aiassistant.cpp \
+	D:/Poorcomputer/Study/Github/AlgoViz/aiassistant.h \
 	D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake \
 	D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeRCCompiler.cmake \
 	D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/CMakeFiles/3.24.2/CMakeSystem.cmake \

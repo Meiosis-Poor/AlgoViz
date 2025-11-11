@@ -30,12 +30,12 @@ void GraphDSLInterpreter::executeBlock(const QStringList &lines, int startLine) 
         }
 
         // 支持 for 循环
-        QRegularExpression forRe(R"(^for\s+(\w+)\s+in\s+range\((\d+),(\d+)\)$)");
+        QRegularExpression forRe(R"(^for\s+(\w+)\s+in\s+range\s*\(\s*([\w]+)\s*,\s*([\w]+)\s*\)$)");
         auto forMatch = forRe.match(line);
         if (forMatch.hasMatch()) {
             QString var = forMatch.captured(1);
-            int start = forMatch.captured(2).toInt();
-            int end = forMatch.captured(3).toInt();
+            int start = expandArg(forMatch.captured(2));
+            int end   = expandArg(forMatch.captured(3));
 
             // 收集循环块
             QStringList subBlock;
@@ -47,7 +47,7 @@ void GraphDSLInterpreter::executeBlock(const QStringList &lines, int startLine) 
 
             for (int i = start; i < end; ++i) {
                 variables[var] = i;
-                executeBlock(subBlock, startLine);
+                executeBlock(subBlock, 1);
             }
             lineNo++; // 跳过 end
             continue;
@@ -81,7 +81,8 @@ void GraphDSLInterpreter::executeLine(const QString &line, int lineNo) {
     if (match.hasMatch()) {
         cmd = match.captured(1);
         args = match.captured(2);
-    } else {
+    }
+    else {
         cmd = line;
     }
 
@@ -91,17 +92,26 @@ void GraphDSLInterpreter::executeLine(const QString &line, int lineNo) {
 
     if (cmd == "insertNode") {
         graph->insertNode();
-    } else if (cmd == "deleteNode" && list.size() == 1) {
+    }
+    else if (cmd == "deleteNode" && list.size() == 1) {
         graph->deleteNodeById(list[0].toInt());
-    } else if (cmd == "addEdge" && list.size() == 3) {
+    }
+    else if (cmd == "addEdge" && list.size() == 3) {
         graph->addEdgeByValue(list[0].toInt(), list[1].toInt(), list[2].toInt());
-    } else if (cmd == "deleteEdge" && list.size() == 2) {
+    }
+    else if (cmd == "deleteEdge" && list.size() == 2) {
         graph->deleteEdgeByValue(list[0].toInt(), list[1].toInt());
-    } else if (cmd == "bfs" && list.size() == 1) {
+    }
+    else if (cmd == "clear") {
+        graph->clear();
+    }
+    else if (cmd == "bfs" && list.size() == 1) {
         graph->runBFS(list[0].toInt());
-    } else if (cmd == "dfs" && list.size() == 1) {
+    }
+    else if (cmd == "dfs" && list.size() == 1) {
         graph->runDFS(list[0].toInt());
-    } else if (cmd == "prim") graph->runPrim();
+    }
+    else if (cmd == "prim") graph->runPrim();
     else if (cmd == "kruskal") graph->runKruskal();
     else if (cmd == "dijkstra" && list.size() == 1) graph->runDijkstra(list[0].toInt());
     else if (cmd == "random" && list.size() == 3) graph->random(list[0].toInt(), list[1].toInt(), list[2].toDouble());

@@ -31,7 +31,7 @@ public:
     void prim(int start=0);
     void primall();
     void kruskal();
-    void dijkstra(int start);
+    QVector<int> dijkstra(int start);
     Step nextStep();
 
 private:
