@@ -35,7 +35,7 @@ void AIAssistant::generateDSL(const QString &doc, const QString &prompt, const Q
     json["model"] = "gpt-5-mini";
     json["messages"] = messages;
     json["temperature"] = 0; // 稳定输出
-    json["max_tokens"] = 500;
+    json["max_tokens"] = 1000;
 
     QJsonDocument docJson(json);
     QByteArray data = docJson.toJson();

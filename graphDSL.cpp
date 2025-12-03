@@ -131,7 +131,7 @@ GraphDSLSyntaxHighlighter::GraphDSLSyntaxHighlighter(QTextDocument *parent)
     keywordFormat.setFontWeight(QFont::Bold);
 
     QStringList keywords = {"let","for","end","insertNode","deleteNode","addEdge",
-                            "deleteEdge","bfs","dfs","prim","kruskal","dijkstra","random"};
+                            "deleteEdge","bfs","dfs","prim","kruskal","dijkstra","random","clear"};
 
     for (const QString &kw : keywords) {
         rules.append({QRegularExpression("\\b" + kw + "\\b"), keywordFormat});

@@ -117,20 +117,16 @@ QVector<QVector<QPair<int,int>>> FileLoader::readAdjacencyList(QString filePath)
     int r = 0;
     while (!in.atEnd() && r < n) {
         QString line = in.readLine().trimmed();
-        if (line.isEmpty()) continue;
-
-        QStringList tokens = line.split(' ', Qt::SkipEmptyParts);
         QVector<QPair<int,int>> neighbors;
-        for (const QString &token : tokens) {
-            QStringList pair = token.split(':');
-            if (pair.size() == 2) {
-                int v = pair[0].toInt();
-                int w = pair[1].toInt();
-                neighbors.append(qMakePair(v, w));
-            } else {
-                // 兼容旧格式（只有邻居编号，没有权重）
-                int v = token.toInt();
-                neighbors.append(qMakePair(v, 1)); // 默认权重=1
+        if (!line.isEmpty()) {
+            QStringList tokens = line.split(' ', Qt::SkipEmptyParts);
+            for (const QString &token : tokens) {
+                QStringList pair = token.split(':');
+                if (pair.size() == 2) {
+                    neighbors.append({pair[0].toInt(), pair[1].toInt()});
+                } else {
+                    neighbors.append({token.toInt(), 1});
+                }
             }
         }
         adjList.append(neighbors);
