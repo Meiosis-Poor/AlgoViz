@@ -6,6 +6,100 @@
 #include <QBrush>
 #include <QColor>
 
+// -------------------- Expression Parser --------------------
+class ExprParser {
+public:
+    ExprParser(const QString &s, const QMap<QString,int>& vars)
+            : text(s), vars(vars), pos(0) {}
+
+    int parse() {
+        int val = parseExpression();
+        skipSpaces();
+        return val;
+    }
+
+private:
+    QString text;
+    const QMap<QString,int>& vars;
+    int pos;
+
+    void skipSpaces() {
+        while (pos < text.length() && text[pos].isSpace())
+            pos++;
+    }
+
+    // expression = term { (+|-) term }
+    int parseExpression() {
+        int value = parseTerm();
+        while (true) {
+            skipSpaces();
+            if (match('+')) value += parseTerm();
+            else if (match('-')) value -= parseTerm();
+            else break;
+        }
+        return value;
+    }
+
+    // term = factor { (*|/) factor }
+    int parseTerm() {
+        int value = parseFactor();
+        while (true) {
+            skipSpaces();
+            if (match('*')) value *= parseFactor();
+            else if (match('/')) {
+                int d = parseFactor();
+                if (d == 0) d = 1;
+                value /= d;
+            }
+            else break;
+        }
+        return value;
+    }
+
+    // factor = number | variable | '(' expression ')'
+    int parseFactor() {
+        skipSpaces();
+
+        // 括号
+        if (match('(')) {
+            int v = parseExpression();
+            match(')');
+            return v;
+        }
+
+        // 数字
+        if (text[pos].isDigit()) {
+            int start = pos;
+            while (pos < text.length() && text[pos].isDigit())
+                pos++;
+            return text.mid(start, pos - start).toInt();
+        }
+
+        // 变量
+        if (text[pos].isLetter() || text[pos] == '_') {
+            int start = pos;
+            while (pos < text.length() &&
+                   (text[pos].isLetterOrNumber() || text[pos] == '_'))
+                pos++;
+            QString var = text.mid(start, pos - start);
+            if (vars.contains(var)) return vars[var];
+            return 0;
+        }
+
+        return 0;
+    }
+
+    bool match(QChar ch) {
+        skipSpaces();
+        if (pos < text.length() && text[pos] == ch) {
+            pos++;
+            return true;
+        }
+        return false;
+    }
+};
+
+
 SortDSLInterpreter::SortDSLInterpreter(SortWidget *sort, QObject *parent)
         : QObject(parent), sort(sort) {}
 
@@ -23,10 +117,12 @@ void SortDSLInterpreter::executeBlock(const QStringList &lines, int startLine) {
         if (line.isEmpty() || line.startsWith("#")) { lineNo++; continue; }
 
         // ---------- let 变量定义 ----------
-        QRegularExpression letRe(R"(^let\s+(\w+)\s*=\s*(\d+)$)");
+        QRegularExpression letRe(R"(^let\s+(\w+)\s*=\s*(.+)$)");
         auto letMatch = letRe.match(line);
         if (letMatch.hasMatch()) {
-            variables[letMatch.captured(1)] = letMatch.captured(2).toInt();
+            QString name = letMatch.captured(1);
+            QString expr = letMatch.captured(2);
+            variables[name] = expandArg(expr);
             lineNo++;
             continue;
         }
@@ -70,11 +166,10 @@ void SortDSLInterpreter::executeBlock(const QStringList &lines, int startLine) {
 
 // -------------------- 参数变量替换 --------------------
 int SortDSLInterpreter::expandArg(const QString &arg) const {
-    QString a = arg.trimmed();
-    if (variables.contains(a))
-        return variables[a];
-    return a.toInt();
+    ExprParser parser(arg, variables);
+    return parser.parse();
 }
+
 
 // -------------------- 执行单行命令 --------------------
 void SortDSLInterpreter::executeLine(const QString &line, int lineNo) {
