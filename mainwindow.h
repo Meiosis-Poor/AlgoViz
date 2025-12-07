@@ -10,6 +10,7 @@
 #include "sortDSL.h"
 #include "helpwindow.h"
 #include "aiassistant.h"
+#include "DSLCompleter.h"
 #include <QTextEdit>
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +40,9 @@ private:
     QTextEdit *sortDslEditor;
     SortDSLSyntaxHighlighter *sortDslHighlighter;
     AIAssistant *ai=new AIAssistant(this);
+
+    DSLCompleter *graphCompleter;
+    DSLCompleter *sortCompleter;
 
     QString sortdoc="SortDSL 是一个用于可视化排序操作的专用 DSL，支持数组节点操作、排序算法、变量定义和循环控制。请严格按照以下语法生成代码，不要输出解释。\n"
                     "\n"

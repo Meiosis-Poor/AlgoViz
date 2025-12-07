@@ -131,6 +131,7 @@ void GraphDSLInterpreter::executeBlock(const QStringList &lines, int startLine) 
         }
 
         // 支持 for 循环
+        // ---------- for 循环 ----------
         QRegularExpression forRe(R"(^for\s+(\w+)\s+in\s+range\s*\(\s*([\w]+)\s*,\s*([\w]+)\s*\)$)");
         auto forMatch = forRe.match(line);
         if (forMatch.hasMatch()) {
@@ -138,21 +139,44 @@ void GraphDSLInterpreter::executeBlock(const QStringList &lines, int startLine) 
             int start = expandArg(forMatch.captured(2));
             int end   = expandArg(forMatch.captured(3));
 
-            // 收集循环块
+            // 收集循环块（支持嵌套）
             QStringList subBlock;
             lineNo++;
-            while (lineNo <= lines.size() && !lines[lineNo-1].trimmed().startsWith("end")) {
-                subBlock.append(lines[lineNo-1]);
+
+            int depth = 1;  // 当前 for 的嵌套深度
+
+            while (lineNo <= lines.size()) {
+                QString l = lines[lineNo - 1].trimmed();
+
+                if (l.startsWith("for")) {
+                    depth++;
+                } else if (l.startsWith("end")) {
+                    depth--;
+                    if (depth == 0) {
+                        break;  // 找到匹配的 end
+                    }
+                }
+
+                subBlock.append(lines[lineNo - 1]);
                 lineNo++;
             }
 
+            if (depth != 0) {
+                QMessageBox::warning(nullptr, "DSL Error",
+                                     QString("Missing 'end' for 'for' starting at line %1").arg(startLine));
+                return;
+            }
+
+            // 执行循环
             for (int i = start; i < end; ++i) {
                 variables[var] = i;
                 executeBlock(subBlock, 1);
             }
-            lineNo++; // 跳过 end
+
+            lineNo++;  // 跳过匹配的 end
             continue;
         }
+
 
         // 执行单行命令
         try {

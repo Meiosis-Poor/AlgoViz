@@ -623,7 +623,7 @@ void GraphWidget::insertNode() {
     else{
         int n = pairdata.size();
         pairdata.push_back({});
-        pairdata[n].push_back(qMakePair(n,0));
+        //pairdata[n].push_back(qMakePair(n,0));
     }
     setMethod(method);
     update();
@@ -656,11 +656,11 @@ void GraphWidget::deleteNode() {
     int nownode = QInputDialog::getInt(this, "Delete Node", "NodeId:", 0, 0,
                                        nowStructureIndex==0 ? intdata.size()-1 : pairdata.size()-1, 1, &ok);
     if(!ok) return;
-    if(nownode<0 || nownode>=intdata.size()){
-        QMessageBox::warning(this, "Error", "Invalid NodeId.");
-        return;
-    }
     if(nowStructureIndex == 0){
+        if(nownode<0 || nownode>=intdata.size()){
+            QMessageBox::warning(this, "Error", "Invalid NodeId.");
+            return;
+        }
         intdata.erase(intdata.begin() + nownode);
         for(int i = 0; i < intdata.size(); i++){
             if(nownode < intdata[i].size())
@@ -668,6 +668,10 @@ void GraphWidget::deleteNode() {
         }
     }
     else{
+        if(nownode<0 || nownode>=pairdata.size()){
+            QMessageBox::warning(this, "Error", "Invalid NodeId.");
+            return;
+        }
         pairdata.erase(pairdata.begin() + nownode);
         for(auto &edges : pairdata){
             for(int j = edges.size() - 1; j >= 0; j--){

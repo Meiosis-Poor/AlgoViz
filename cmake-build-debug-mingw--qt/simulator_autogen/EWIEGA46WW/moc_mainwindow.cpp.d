@@ -1,5 +1,6 @@
 D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/Poorcomputer/Study/Github/AlgoViz/mainwindow.h \
   D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autogen/moc_predefs.h \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QEvent \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QFile \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QFlags \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QList \
@@ -16,6 +17,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtCore/QStack \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QStringList \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QStringListModel \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QThread \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QUrl \
@@ -133,6 +135,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtCore/qstringconverter_base.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qstringfwd.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qstringlist.h \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/qstringlistmodel.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qstringliteral.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qstringmatcher.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qstringtokenizer.h \
@@ -172,6 +175,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.9.2/mingw_64/include/QtGui/QKeyEvent \
   C:/Qt/6.9.2/mingw_64/include/QtGui/QMouseEvent \
   C:/Qt/6.9.2/mingw_64/include/QtGui/QPaintEvent \
   C:/Qt/6.9.2/mingw_64/include/QtGui/QSyntaxHighlighter \
@@ -245,12 +249,14 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetwork-config.h \
   C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetworkexports.h \
   C:/Qt/6.9.2/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  C:/Qt/6.9.2/mingw_64/include/QtWidgets/QAbstractItemView \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QCompleter \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.9.2/mingw_64/include/QtWidgets/QScrollBar \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QSplitter \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QStackedWidget \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/QTableWidget \
@@ -278,6 +284,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/qrubberband.h \
+  C:/Qt/6.9.2/mingw_64/include/QtWidgets/qscrollbar.h \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/qslider.h \
   C:/Qt/6.9.2/mingw_64/include/QtWidgets/qsplitter.h \
@@ -546,6 +553,7 @@ D:/Poorcomputer/Study/Github/AlgoViz/cmake-build-debug-mingw--qt/simulator_autog
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  D:/Poorcomputer/Study/Github/AlgoViz/DSLCompleter.h \
   D:/Poorcomputer/Study/Github/AlgoViz/GraphWidget.h \
   D:/Poorcomputer/Study/Github/AlgoViz/aiassistant.h \
   D:/Poorcomputer/Study/Github/AlgoViz/fileloader.h \

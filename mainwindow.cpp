@@ -108,6 +108,15 @@ MainWindow::MainWindow(QWidget *parent)
     createSortDSLPanel(sort->sortArea);
     ui->DSLAction->setCheckable(true);
 
+    stacked->setCurrentIndex(0);
+    ascAction->setVisible(false);
+    descAction->setVisible(false);
+    listbtn->setVisible(true);
+    matrixbtn->setVisible(true);
+    graphDslDock->setVisible(sortDslDock->isVisible());
+    sortDslDock->setVisible(false);
+    ui->graphbtn->setChecked(true);
+
     connect(ui->DSLAction, &QAction::triggered, this, [this,stacked]() {
         // 判断当前模式
         if (stacked->currentIndex() == 0) {
@@ -295,6 +304,11 @@ void MainWindow::createGraphDSLPanel(GraphWidget *graph) {
     // 解释器
     auto *interpreter = new GraphDSLInterpreter(graph, this);
 
+    // Graph DSL 自动补全
+    QStringList graphKeywords = {"let","for","end","insertNode","deleteNode","addEdge",
+                                 "deleteEdge","bfs","dfs","prim","kruskal","dijkstra","random","clear"};
+    graphCompleter = new DSLCompleter(graphDslEditor, graphKeywords, this);
+
     // 运行
     connect(runButton, &QPushButton::clicked, this, [this, interpreter]() {
         interpreter->run(graphDslEditor->toPlainText());
@@ -330,7 +344,15 @@ void MainWindow::createSortDSLPanel(SortWidget *sort) {
     // 解释器
     auto *interpreter = new SortDSLInterpreter(sort, this);
 
+    // Sort DSL 自动补全
+    QStringList sortKeywords = {"let","for","end","insert","remove","clear","sort","sortBubble",
+                                "sortInsertion","sortSelection","sortQuick","sortMerge","sortHeap","autoRun","stop","reset"};
+    sortCompleter = new DSLCompleter(sortDslEditor, sortKeywords, this);
+
     connect(runButton, &QPushButton::clicked, this, [this, interpreter]() {
         interpreter->run(sortDslEditor->toPlainText());
     });
 }
+
+
+
