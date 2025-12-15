@@ -128,7 +128,6 @@ void SortDSLInterpreter::executeBlock(const QStringList &lines, int startLine) {
         }
 
         // ---------- for Ñ­»· ----------
-        // ---------- for Ñ­»· ----------
         QRegularExpression forRe(R"(^for\s+(\w+)\s+in\s+range\s*\(\s*([\w]+)\s*,\s*([\w]+)\s*\)$)");
         auto forMatch = forRe.match(line);
         if (forMatch.hasMatch()) {
